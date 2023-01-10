@@ -1,6 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/styles.css">
+    <title>Project Food</title>
+</head>
+<body>
+<header>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+            <img src="./assets/photos/Editable-Photoshop-Food-Logo-Design-PNG-Transparent-2048x2048.png" width="112" height="56">
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item">
+              Recipe Finder
+            </a>
+            <a class="navbar-item">
+              Meal Planner
+            </a>
+            <h1 class="title">Project Food</h1>
+          </div>
+        </div>
+      </nav>
+</header>
+<main>
+    <div id="main">
+    <form>
+        <input class="box" placeholder="Enter an Ingredient"></input>
+        <button class="button is-info is-normal" id="add-to-list">Add To List</button>
+        <button class="button is-danger is-normal" id="find-recipe">Find Recipes</button>
+    </form>
+    <div id="list-of-ingrdients"></div>
+    </div>
+    
+</main>
+    <script src ="./assets/main.js"></script>
+
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,5 +59,6 @@
 <body>
 
     
+</main>
 </body>
 </html>
