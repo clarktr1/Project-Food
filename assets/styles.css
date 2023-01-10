@@ -1,0 +1,31 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    margin: 20px 20vw;
+}
+
+#main {
+    margin-top: 18vh;
+    padding: 0 20vh;
+}
+
+form {
+    display: flex;
+    width: 20vh;
+}
+
+form button {
+    margin: 12px 12px 0px 8px;
+}
+
+#list-of-ingrdients {
+    width: 38%;
+    height: 300px;
+    background-color: rgb(205, 209, 209);
+    border: 1px solid black;
+    border-radius: 6px;
+    margin: 0;
+}
