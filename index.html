@@ -40,8 +40,8 @@
 <main>
     <div id="main">
     <form>
-        <input class="box" placeholder="Enter an Ingredient"></input>
-        <button class="button is-info is-normal" id="add-to-list">Add To List</button>
+        <input class="box" placeholder="Enter an Ingredient" id="ingredient-input"></input>
+        <button type="submit" class="button is-info is-normal" id="add-to-list" onclick="addIngredient(event);">Add To List</button>
         <button class="button is-danger is-normal" id="find-recipe">Find Recipes</button>
     </form>
     <div id="list-of-ingrdients"></div>
