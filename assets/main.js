@@ -7,15 +7,11 @@ var ingrdientsArray = [];
 function addIngredient(event) {
     event.preventDefault();
     var ingredient = document.getElementById("ingredient-input").value;
-<<<<<<< HEAD
-=======
     ingrdientsArray.push(ingredient);
->>>>>>> cd2eb2dcad321cefed3e984d3d4e9dd5d5bf254d
     var list = document.getElementById("list-of-ingredients");
     list.innerHTML += ingredient + "<br>";
     document.getElementById("ingredient-input").value = "";
   }
-<<<<<<< HEAD
 
 
 
@@ -24,5 +20,3 @@ function addIngredient(event) {
 
   // Nutrition Count
   
-=======
->>>>>>> cd2eb2dcad321cefed3e984d3d4e9dd5d5bf254d

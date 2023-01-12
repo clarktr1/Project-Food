@@ -88,3 +88,12 @@ font-weight: 400;
     padding-top: 10px;
     padding-right: 8px;
 }
+
+.nutrition-label {
+    text-align: left;
+}
+
+.nutrition-label li {
+    padding-left: 8px;
+    margin-bottom: 6px;
+}
