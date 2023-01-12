@@ -2,7 +2,15 @@
 function addIngredient(event) {
     event.preventDefault();
     var ingredient = document.getElementById("ingredient-input").value;
-    var list = document.getElementById("list-of-ingrdients");
+    var list = document.getElementById("list-of-ingredients");
     list.innerHTML += ingredient + "<br>";
     document.getElementById("ingredient-input").value = "";
   }
+
+
+
+
+
+
+  // Nutrition Count
+  
