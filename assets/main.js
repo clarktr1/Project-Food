@@ -22,6 +22,7 @@ function findRecipes(event) {
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            document.getElementById("list-of-ingredients").innerHTML = "";
         });
 }
 
