@@ -59,7 +59,19 @@
                     <li><a><span>Calendar</span> <img class="icon" src="./assets/photos/calendar.png"></a></li>
                     <li><a><span>Recipes</span> <img src="./assets/photos/contract.png" class="icon"></a></li>
                     <li><a><span>Products</span><img src="./assets/photos/broccoli.png" class="icon"></a></li>
-                    <li><a><span>Shopping Plan</span><img src="./assets/photos/bag.png" class="icon"></a></li>
+                    <div class="modal" id="shopping-plan-modal">
+                      <div class="modal-background"></div>
+                      <div class="modal-content">
+                        <!-- content of the modal, like a shopping plan -->
+                      </div>
+                      <button class="modal-close is-large" aria-label="close"></button>
+                    </div>
+                    <li class="js-modal-trigger" data-target="shopping-plan-modal">
+                      <a>
+                        <span>Shopping Plan</span>
+                        <img src="./assets/photos/bag.png" class="icon">
+                      </a>
+                    </li>
               </aside>
         </div>
         <div class="planner-grid">
