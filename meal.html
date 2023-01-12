@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link href="~bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/styles.css">
+    <title>Thyme for Food</title>
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a  href="./index.html">
+            <img src="./assets/photos/Editable-Photoshop-Food-Logo-Design-PNG-Transparent-2048x2048.png" width="112" height="auto">
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="index.html">
+              Recipe Finder
+            </a>
+            <a class="navbar-item" href="meal.html">
+              Meal Planner
+            </a>
+            <h1 class="title">Project Food</h1>
+          </div>
+        </div>
+      </nav>
+      <div id="calendar-container" style=
+      "margin-top: 2%;
+      display: flex;">
+        <div id="calendar-menu" style=
+        "width: 20%; 
+        height: 40vh;
+        margin-left: 6px;
+        background-color: hsl(0, 0%, 96%);
+        border: 1px solid hsla(0, 2%, 25%, 0.637)">
+            <aside class="menu">
+                <p class="menu-label" style=
+                "background-color: hsl(171, 100%, 41%);
+                border: 1px solid hsl(0, 0%, 96%);
+                color: #fff; 
+                height: 30px;
+                font-weight: bolder;
+                padding-left: 6px;
+                font-size: larger;" >
+                  Options
+                </p>
+                <ul class="menu-list">
+                    <li><a><span>Calendar</span> <img class="icon" src="./assets/photos/calendar.png"></a></li>
+                    <li><a><span>Recipes</span> <img src="./assets/photos/contract.png" class="icon"></a></li>
+                    <li><a><span>Products</span><img src="./assets/photos/broccoli.png" class="icon"></a></li>
+                    <li><a><span>Shopping Plan</span><img src="./assets/photos/bag.png" class="icon"></a></li>
+              </aside>
+        </div>
+        <div class="planner-grid">
+            <p></p>
+            <div class="align-center">Monday</div>
+            <div class="align-center">Tuesday</div>
+            <div class="align-center">Wednesday</div>
+            <div class="align-center">Thursday</div>
+            <div class="align-center">Friday</div>
+            <p id="time">Morning</p>
+            <div id="Monday-morning"></div>
+            <div id="Tuesday-morning"></div>
+            <div id="Wednesday-morning"></div>
+            <div id="Thursday-morning"></div>
+            <div id="Friday-morning"></div>
+            <p id="time">Afternoon</p>
+            <div id="Monday-afternoon"></div>
+            <div id="Tuesday-afternoon"></div>
+            <div id="Wednesday-afternoon"></div>
+            <div id="Thursday-afternoon"></div>
+            <div id="Friday-afternoon"></div>
+            <p id="time">Evening</p>
+            <div id="Monday-evening"></div>
+            <div id="Tuesday-evening"></div>
+            <div id="Wednesday-evening"></div>
+            <div id="Thursday-evening"></div>
+            <div id="Friday-evening"></div>
+
+
+            
+        </div>
+    <script src ="./assets/main.js"></script> 
+    <script src="~bulma-calendar/dist/js/bulma-calendar.min.js"></script>
+</body>
+</html>

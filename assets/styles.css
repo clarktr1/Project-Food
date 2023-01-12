@@ -24,8 +24,67 @@ form button {
 #list-of-ingrdients {
     width: 38%;
     height: 300px;
-    background-color: rgb(205, 209, 209);
+    background-color: rgba(221, 234, 234, 0.473);
     border: 1px solid black;
     border-radius: 6px;
     margin: 0;
+}
+
+.menu-list li {
+margin-top: 30px;
+height: 16px;
+font-size: 18px;
+font-weight: 400;
+}
+
+.menu-list a:hover {
+    background: hsl(171, 100%, 41%);
+    color: #fff;
+    font-weight: bold;
+    }
+
+.menu-list li span {
+    margin-right: 8px;
+}
+
+
+.time-grid {
+    display: grid;
+    grid-template-columns: 16px;
+    grid-template-rows: repeat(3, 50%); 
+}
+
+#time {
+    padding-top: 70px;
+    transform: rotate(-90deg);
+    padding-right: 8px;
+    font-size: 20px;
+    color: rgba(17, 17, 17, 0.541);
+}
+
+.planner-grid {
+    display: grid;
+    width: 80%;
+    height: auto;
+    margin-left: 8px;
+    grid-template-columns: auto repeat(5, 1fr);
+    grid-template-rows: 20% repeat(5, 50%);
+}
+
+.planner-grid .align-center{
+    padding-top: 16px;
+    background-color: hsl(204, 86%, 53%);
+    color: #fff;
+    font-weight: bolder;
+}
+
+.planner-grid div {
+    border: 1px solid rgb(153, 148, 148);
+    text-align: center;
+}
+
+.planner-grid p {
+    transform:rotate(-90deg);
+    padding-top: 10px;
+    padding-right: 8px;
 }
