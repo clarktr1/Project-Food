@@ -1,4 +1,4 @@
-//  Adds the ingredient into the list as well as clears the bar for the next input
+//  Adds the ingredient into the list as well as clears the bar for the next input and creates them into an array
 var ingrdientsArray = [];
 function addIngredient(event) {
     event.preventDefault();
