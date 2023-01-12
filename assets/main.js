@@ -4,7 +4,7 @@ function addIngredient(event) {
     event.preventDefault();
     var ingredient = document.getElementById("ingredient-input").value;
     ingrdientsArray.push(ingredient);
-    var list = document.getElementById("list-of-ingrdients");
+    var list = document.getElementById("list-of-ingredients");
     list.innerHTML += ingredient + "<br>";
     document.getElementById("ingredient-input").value = "";
   }
