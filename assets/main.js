@@ -12,3 +12,17 @@ function addIngredient(event) {
     list.innerHTML += ingredient + "<br>";
     document.getElementById("ingredient-input").value = "";
   }
+
+
+
+function findRecipes(event) {
+    event.preventDefault();
+    const ingredients = ingrdientsArray.join(",");
+    fetch(apiUrl + ingredients)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        });
+}
+
+
