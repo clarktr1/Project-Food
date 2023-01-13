@@ -3,6 +3,14 @@ const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${a
 
 //  Adds the ingredient into the list as well as clears the bar for the next input and creates them into an array
 var ingrdientsArray = [];
+var numberofsavedRecipes = 0;
+var getsavedRecipes = localStorage.getItem('savedRecipes')
+
+function placeRecipe() {
+  if (getsavedRecipes){
+  numberofsavedRecipes = getsavedRecipes
+}
+};
 
 function addIngredient(event) {
     event.preventDefault();
@@ -13,6 +21,12 @@ function addIngredient(event) {
     document.getElementById("ingredient-input").value = "";
   }
 
+function saveItem(item){
+  numberofsavedRecipes += 1
+  localStorage.setItem ('savedRecipes', numberofsavedRecipes)
+  localStorage.setItem(numberofsavedRecipes, JSON.stringify(item))
+  
+};
 
 // Takes the list of ingredients and using an API finds 10 recipes that you can make with it
 function findRecipes(event) {
@@ -21,10 +35,28 @@ function findRecipes(event) {
     fetch(apiUrl + ingredients)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
             document.getElementById("list-of-ingredients").innerHTML = "";
+
+            //Places in Box
+            
+            if(data){
+            var recipeBox = document.querySelector('#recipes');
+            data.forEach(recipeTitle => console.log(recipeTitle));
+            var recipeTitle = data.title;
+            };
+
+            var recipeList = document.createElement("ul");
+            recipeBox.appendChild(recipeList);
+            var recipeItem = document.createElement('li');
+            recipeItem.setAttribute('class', 'recipe-titles');
+            recipeList.appendChild(recipeItem);
+            recipeItem.innerHTML = recipeTitle;
+            recipeItem.addEventListener('click',() => saveItem(data));
+
         });
 }
+
 
 // bulma modal JS
 document.addEventListener('DOMContentLoaded', () => {
@@ -71,3 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  //Runs on pageload
+  placeRecipe();
