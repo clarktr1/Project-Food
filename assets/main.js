@@ -2,7 +2,7 @@ const apiKey = "02d88c0bd1614f2a831e95aa71af5f31";
 const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKey}&ingredients=`;
 
 //  Adds the ingredient into the list as well as clears the bar for the next input and creates them into an array
-var ingrdientsArray = [];
+var ingredientsArray = [];
 var numberofsavedRecipes = 0;
 var getsavedRecipes = localStorage.getItem('savedRecipes')
 
@@ -15,7 +15,7 @@ function placeRecipe() {
 function addIngredient(event) {
     event.preventDefault();
     var ingredient = document.getElementById("ingredient-input").value;
-    ingrdientsArray.push(ingredient);
+    ingredientsArray.push(ingredient);
     var list = document.getElementById("list-of-ingredients");
     list.innerHTML += ingredient + "<br>";
     document.getElementById("ingredient-input").value = "";
@@ -31,28 +31,28 @@ function saveItem(item){
 // Takes the list of ingredients and using an API finds 10 recipes that you can make with it
 function findRecipes(event) {
     event.preventDefault();
-    const ingredients = ingrdientsArray.join(",");
+    const ingredients = ingredientsArray.join(",");
     fetch(apiUrl + ingredients)
         .then(response => response.json())
         .then(data => {
             // console.log(data);
             document.getElementById("list-of-ingredients").innerHTML = "";
+            console.log(data);
 
             //Places in Box
-            
-            if(data){
             var recipeBox = document.querySelector('#recipes');
-            data.forEach(recipeTitle => console.log(recipeTitle));
-            var recipeTitle = data.title;
-            };
-
+            // if(data){
+            for (var i = 0; i < data.length; i++){
+            var recipeTitle = data[i].image;
+            console.log(recipeTitle);
             var recipeList = document.createElement("ul");
             recipeBox.appendChild(recipeList);
-            var recipeItem = document.createElement('li');
-            recipeItem.setAttribute('class', 'recipe-titles');
+            var recipeItem = document.createElement('img');
+            recipeItem.setAttribute('src', recipeTitle);
             recipeList.appendChild(recipeItem);
-            recipeItem.innerHTML = recipeTitle;
             recipeItem.addEventListener('click',() => saveItem(data));
+          };
+
 
         });
 }
@@ -104,5 +104,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  //Runs on pageload
+//Carousel JS
+var carousel = document.querySelectorAll('.carousel').forEach(carousel => {
+  var items = carousel.querySelectorAll('.carousel-item');
+  var carouselButton = Array.from(items, () => {
+    return '<span class="carousel-button"></span>';
+  });
+
+  carousel.insertAdjacentHTML("beforeend", `
+  <div class =carousel-nav>
+  ${ carouselButton.join("") }
+  </div>
+  `);
+
+  var buttons = carousel.querySelectorAll('.carousel-button');
+  buttons.forEach((button, i) => {
+    button.addEventListener('click', () => {
+      items.forEach(item => item.classList.remove('carousel-item-selected'));
+      buttons.forEach(button => button.classList.remove('carousel-button-selected'));
+      
+      items[i].classList.add('carousel-item-selected');
+      button.classList.add('carousel-button-selected');
+      });
+     });
+     items[0].classList.add('carousel-item-selected');
+     buttons[0].classList.add('carousel-button-selected');
+    });
+
+
+
+
+//Runs on pageload
   placeRecipe();
