@@ -40,18 +40,31 @@ function findRecipes(event) {
             console.log(data);
 
             //Places in Box
-            var recipeBox = document.querySelector('#recipes');
-            // if(data){
+            var recipeCarousel = document.querySelector('.carousel');
+
             for (var i = 0; i < data.length; i++){
-            var recipeTitle = data[i].image;
-            console.log(recipeTitle);
-            var recipeList = document.createElement("ul");
-            recipeBox.appendChild(recipeList);
-            var recipeItem = document.createElement('img');
-            recipeItem.setAttribute('src', recipeTitle);
-            recipeList.appendChild(recipeItem);
-            recipeItem.addEventListener('click',() => saveItem(data));
+            var recipeTitle = data[i].title;
+            var recipeImage = data[i].image;
+            
+            var recipeList = document.createElement("div");
+            recipeList.setAttribute('class', 'carousel-item'); //creates <div class="carousel-item"></div>
+
+            var recipeName = document.createElement('h3');
+            recipeName.textContent = recipeTitle //creates <h3>[Title of Recipe]</h3>
+
+            var recipePicture = document.createElement('img');
+            recipePicture.setAttribute('src', recipeImage); //creates <img src="[recipe url]">
+
+            
+
+            recipeCarousel.insertAdjacentElement("afterbegin", recipeList);
+            recipeList.insertAdjacentHTML("afterbegin", '<img src="' + recipeImage + '">');
+
+
+            recipePicture.addEventListener('click',() => saveItem(data))
           };
+
+          console.log(recipeList);
 
 
         });
