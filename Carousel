@@ -17,44 +17,38 @@
             <div class="card">
                 <div class="card-image">
                     <figure class="image is-16by9 is-covered">
-                        <img src="https://source.unsplash.com/random/1200x500" alt="" />
+                        
+                         alt="" />
                     </figure>
                 </div>
                 <div class="card-content slider-text ">
-                    <div class="is-size-5 box">
-                        
-                    </div>
                 </div>
             </div>
             <div class="card ">
                 <div class="card-image">
                     <figure class="image is-16by9 is-covered">
-                        <img src="https://source.unsplash.com/random/1200x500" alt="" />
+                        
+                         alt="" />
                     </figure>
                 </div>
                 <div class="card-content slider-text ">
-                    <p class="is-size-5 box">
-                        
-                    </p>
                 </div>
             </div>
             <div class="card ">
                 <div class="card-image">
                     <p class="image is-16by9 is-covered">
-                        <img src="https://source.unsplash.com/random/1200x500" alt="" />
+                        
+                         alt="" />
                     </p>
                 </div>
                 <div class="card-content slider-text ">
-                    <p class=" is-size-5 box">
-                        
-                    </p>
                 </div>
             </div>
         </div>
     </section>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
-    <script>
+       <script>
         bulmaCarousel.attach('#slider', {
             slidesToScroll: 1,
             slidesToShow: 1,
