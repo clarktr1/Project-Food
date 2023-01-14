@@ -62,11 +62,38 @@ function findRecipes(event) {
 
 
             recipePicture.addEventListener('click',() => saveItem(data))
+
+            
           };
 
           console.log(recipeList);
 
-
+          var carousel = document.querySelectorAll('.carousel').forEach(carousel => {
+            var items = carousel.querySelectorAll('.carousel-item');
+            var carouselButton = Array.from(items, () => {
+              return '<span class="carousel-button"></span>';
+            });
+          
+            carousel.insertAdjacentHTML("beforeend", `
+            <div class =carousel-nav>
+            ${ carouselButton.join("") }
+            </div>
+            `);
+          
+            var buttons = carousel.querySelectorAll('.carousel-button');
+            buttons.forEach((button, i) => {
+              button.addEventListener('click', () => {
+                items.forEach(item => item.classList.remove('carousel-item-selected'));
+                buttons.forEach(button => button.classList.remove('carousel-button-selected'));
+                
+                items[i].classList.add('carousel-item-selected');
+                button.classList.add('carousel-button-selected');
+                });
+               });
+               items[0].classList.add('carousel-item-selected');
+               buttons[0].classList.add('carousel-button-selected');
+              });
+              
         });
 }
 
@@ -118,31 +145,31 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 //Carousel JS
-var carousel = document.querySelectorAll('.carousel').forEach(carousel => {
-  var items = carousel.querySelectorAll('.carousel-item');
-  var carouselButton = Array.from(items, () => {
-    return '<span class="carousel-button"></span>';
-  });
+// var carousel = document.querySelectorAll('.carousel').forEach(carousel => {
+//   var items = carousel.querySelectorAll('.carousel-item');
+//   var carouselButton = Array.from(items, () => {
+//     return '<span class="carousel-button"></span>';
+//   });
 
-  carousel.insertAdjacentHTML("beforeend", `
-  <div class =carousel-nav>
-  ${ carouselButton.join("") }
-  </div>
-  `);
+//   carousel.insertAdjacentHTML("beforeend", `
+//   <div class =carousel-nav>
+//   ${ carouselButton.join("") }
+//   </div>
+//   `);
 
-  var buttons = carousel.querySelectorAll('.carousel-button');
-  buttons.forEach((button, i) => {
-    button.addEventListener('click', () => {
-      items.forEach(item => item.classList.remove('carousel-item-selected'));
-      buttons.forEach(button => button.classList.remove('carousel-button-selected'));
+//   var buttons = carousel.querySelectorAll('.carousel-button');
+//   buttons.forEach((button, i) => {
+//     button.addEventListener('click', () => {
+//       items.forEach(item => item.classList.remove('carousel-item-selected'));
+//       buttons.forEach(button => button.classList.remove('carousel-button-selected'));
       
-      items[i].classList.add('carousel-item-selected');
-      button.classList.add('carousel-button-selected');
-      });
-     });
-     items[0].classList.add('carousel-item-selected');
-     buttons[0].classList.add('carousel-button-selected');
-    });
+//       items[i].classList.add('carousel-item-selected');
+//       button.classList.add('carousel-button-selected');
+//       });
+//      });
+//      items[0].classList.add('carousel-item-selected');
+//      buttons[0].classList.add('carousel-button-selected');
+//     });
 
 
 
