@@ -149,3 +149,4 @@ var carousel = document.querySelectorAll('.carousel').forEach(carousel => {
 
 //Runs on pageload
   placeRecipe();
+// The end
