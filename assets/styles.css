@@ -10,7 +10,7 @@ html {
 #main {
     display: relative;
     border: 1px solid black;
-    width: 40%;
+    width: 100%;
     margin-left: 5%;
 }
 
@@ -104,11 +104,9 @@ font-weight: 400;
 /* Carousel Styling */
 
 .carousel {
-    position: absolute;
-    left: 50vw;
-    top: 16vh;
-    display: inline-block;
-    width: 40%;
+    position: relative;
+    width: 50%;
+
 }
 
 /* Targets each display */
@@ -145,12 +143,12 @@ font-weight: 400;
 }
 
 .carousel-button:hover {
-    background: rgb(255, 255, 255);
+    background: rgb(14, 35, 188);
     cursor: pointer;
 }
 
 .carousel-button-selected {
-    background: rgb(255, 255, 255);
+    background: rgb(14, 35, 188);
 }
 
 .img-center {

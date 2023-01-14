@@ -58,7 +58,7 @@ function findRecipes(event) {
             
 
             recipeCarousel.insertAdjacentElement("afterbegin", recipeList);
-            recipeList.insertAdjacentHTML("afterbegin", '<img src="' + recipeImage + '">');
+            recipeList.insertAdjacentHTML("afterbegin", '<img src="' + recipeImage + '" />');
 
 
             recipePicture.addEventListener('click',() => saveItem(data))
