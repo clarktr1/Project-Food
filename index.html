@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,22 +38,24 @@
 </header>
 <main>
     <div id="main" class="container">
+    <div>
     <form>
         <input class="box" placeholder="Enter an Ingredient" id="ingredient-input"></input>
-
         <button type="submit" class="button is-info is-normal" id="add-to-list" onclick="addIngredient(event);">Add To List</button>
 
         <button class="button is-danger is-normal" id="find-recipe" onclick="findRecipes(event)">Find Recipes</button>
         
     </form>
     <div id="list-of-ingredients"></div>
+  </div>
+    <div class="carousel" id="recipes">
+
+    </div>
     </div>
     
 </main>
     <script src ="./assets/main.js"></script>
-
-<body>
-
     
+</head>    
 </body>
 </html>

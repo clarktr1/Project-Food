@@ -8,8 +8,10 @@ html {
 }
 
 #main {
-    margin-top: 18vh;
-    padding: 0 20vh;
+    display: relative;
+    border: 1px solid black;
+    width: 100%;
+    margin-left: 5%;
 }
 
 form {
@@ -22,12 +24,14 @@ form button {
 }
 
 #list-of-ingredients {
+    display: inline-block;
     width: 38%;
     height: 300px;
+    padding-left: 12px;
     background-color: rgba(221, 234, 234, 0.473);
     border: 1px solid black;
     border-radius: 6px;
-    margin: 0;
+    margin-right: 0;
 }
 
 .menu-list li {
@@ -87,4 +91,82 @@ font-weight: 400;
     transform:rotate(-90deg);
     padding-top: 10px;
     padding-right: 8px;
+}
+
+.nutrition-label {
+    text-align: left;
+}
+
+.nutrition-label li {
+    padding-left: 8px;
+    margin-bottom: 6px;
+}
+
+/* Carousel Styling */
+
+.carousel {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 8px;
+    width: 40%;
+
+}
+
+/* Targets each display */
+.carousel-item { 
+    display: none;
+    background: rgba(103, 164, 204, 0.46);
+    padding: 1em;    
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+
+.carousel-item-selected {
+    display: flex;
+}
+/* Targets each display */
+
+
+.carousel-nav {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    z-index: 1;
+}
+
+.carousel-button {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.632);
+    border-radius: 50px;
+    margin: 0 5px;
+}
+
+.carousel-button:hover {
+    background: rgb(14, 35, 188);
+    cursor: pointer;
+}
+
+.carousel-button-selected {
+    background: rgb(14, 35, 188);
+}
+
+.carousel-item img {
+    display: block;
+    margin: 0 auto 11.9328px auto;
+}
+
+.text-center {
+    text-align: center;
+    margin-bottom: 8px;
+    font-weight: bolder;
+    color: #fff;
+}
+
+.carousel-item button {
+    margin-bottom: 20px;
 }

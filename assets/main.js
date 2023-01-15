@@ -3,16 +3,33 @@ const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${a
 
 //  Adds the ingredient into the list as well as clears the bar for the next input and creates them into an array
 var ingredientsArray = [];
+var numberofsavedRecipes = 0;
+var getsavedRecipes = localStorage.getItem('savedRecipes')
+
+function placeRecipe() {
+  if (getsavedRecipes){
+  numberofsavedRecipes = getsavedRecipes
+}
+};
 
 function addIngredient(event) {
     event.preventDefault();
     var ingredient = document.getElementById("ingredient-input").value;
     ingredientsArray.push(ingredient);
     var list = document.getElementById("list-of-ingredients");
-    list.innerHTML += ingredient + "<br>";
+    list.innerHTML += `
+    <li>
+    ${ ingredient }
+    </li>`;
     document.getElementById("ingredient-input").value = "";
   }
 
+function saveItem(item){
+  numberofsavedRecipes += 1
+  localStorage.setItem ('savedRecipes', numberofsavedRecipes)
+  localStorage.setItem(numberofsavedRecipes, JSON.stringify(item))
+  
+};
 
 // Takes the list of ingredients and using an API finds 10 recipes that you can make with it
 function findRecipes(event) {
@@ -21,10 +38,75 @@ function findRecipes(event) {
     fetch(apiUrl + ingredients)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
             document.getElementById("list-of-ingredients").innerHTML = "";
+            console.log(data);
+
+            //Places in Box
+            var recipeCarousel = document.querySelector('.carousel');
+            recipeCarousel.innerHTML = '';
+
+            for (var i = 0; i < data.length; i++){
+                var recipeTitle = data[i].title;
+                var recipeImage = data[i].image;
+                
+                var recipeList = document.createElement("div");
+                recipeList.setAttribute('class', 'carousel-item'); //creates <div class="carousel-item"></div>
+
+                var recipeName = document.createElement('h3');
+                recipeName.textContent = recipeTitle //creates <h3>[Title of Recipe]</h3>
+
+                var recipePicture = document.createElement('img');
+                recipePicture.setAttribute('src', recipeImage); //creates <img src="[recipe url]">
+                recipePicture.setAttribute('class', 'img-center');
+
+                var saverecipeBtn = document.createElement('button');
+                saverecipeBtn.setAttribute('class', 'button is-danger save-target')
+                saverecipeBtn.textContent = 'Add to Recipe List';
+
+
+                recipeCarousel.insertAdjacentElement("afterbegin", recipeList);
+                recipeList.insertAdjacentHTML("afterbegin", '<img src=' + recipeImage + '/>');
+                recipeList.insertAdjacentElement("afterbegin", recipeName);
+                recipeList.insertAdjacentElement("beforeend", saverecipeBtn);
+
+                var SaveBtnLast = document.querySelectorAll('.save-target');
+                SaveBtnLast.forEach(function(button) {
+                  button.addEventListener('click', saveItem);
+                });
+          };
+
+          console.log(recipeList);
+
+          var carousel = document.querySelectorAll('.carousel').forEach(carousel => {
+            var items = carousel.querySelectorAll('.carousel-item');
+            var carouselButton = Array.from(items, () => {
+              return '<span class="carousel-button"></span>';
+            });
+          
+            carousel.insertAdjacentHTML("beforeend", `
+            <div class =carousel-nav>
+            ${ carouselButton.join("") }
+            </div>
+            `);
+          
+            var buttons = carousel.querySelectorAll('.carousel-button');
+            buttons.forEach((button, i) => {
+              button.addEventListener('click', () => {
+                items.forEach(item => item.classList.remove('carousel-item-selected'));
+                buttons.forEach(button => button.classList.remove('carousel-button-selected'));
+                
+                items[i].classList.add('carousel-item-selected');
+                button.classList.add('carousel-button-selected');
+                });
+               });
+               items[0].classList.add('carousel-item-selected');
+               buttons[0].classList.add('carousel-button-selected');
+              });
+
         });
 }
+
 
 // bulma modal JS
 document.addEventListener('DOMContentLoaded', () => {
@@ -72,3 +154,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+//Carousel JS
+// var carousel = document.querySelectorAll('.carousel').forEach(carousel => {
+//   var items = carousel.querySelectorAll('.carousel-item');
+//   var carouselButton = Array.from(items, () => {
+//     return '<span class="carousel-button"></span>';
+//   });
+
+//   carousel.insertAdjacentHTML("beforeend", `
+//   <div class =carousel-nav>
+//   ${ carouselButton.join("") }
+//   </div>
+//   `);
+
+//   var buttons = carousel.querySelectorAll('.carousel-button');
+//   buttons.forEach((button, i) => {
+//     button.addEventListener('click', () => {
+//       items.forEach(item => item.classList.remove('carousel-item-selected'));
+//       buttons.forEach(button => button.classList.remove('carousel-button-selected'));
+      
+//       items[i].classList.add('carousel-item-selected');
+//       button.classList.add('carousel-button-selected');
+//       });
+//      });
+//      items[0].classList.add('carousel-item-selected');
+//      buttons[0].classList.add('carousel-button-selected');
+//     });
+
+
+
+
+//Runs on pageload
+  placeRecipe();
+ 
+//thr end
