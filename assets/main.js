@@ -17,7 +17,10 @@ function addIngredient(event) {
     var ingredient = document.getElementById("ingredient-input").value;
     ingredientsArray.push(ingredient);
     var list = document.getElementById("list-of-ingredients");
-    list.innerHTML += ingredient + "<br>";
+    list.innerHTML += `
+    <li>
+    ${ ingredient }
+    </li>`;
     document.getElementById("ingredient-input").value = "";
   }
 
@@ -41,29 +44,36 @@ function findRecipes(event) {
 
             //Places in Box
             var recipeCarousel = document.querySelector('.carousel');
+            recipeCarousel.innerHTML = '';
 
             for (var i = 0; i < data.length; i++){
-            var recipeTitle = data[i].title;
-            var recipeImage = data[i].image;
-            
-            var recipeList = document.createElement("div");
-            recipeList.setAttribute('class', 'carousel-item'); //creates <div class="carousel-item"></div>
+                var recipeTitle = data[i].title;
+                var recipeImage = data[i].image;
+                
+                var recipeList = document.createElement("div");
+                recipeList.setAttribute('class', 'carousel-item'); //creates <div class="carousel-item"></div>
 
-            var recipeName = document.createElement('h3');
-            recipeName.textContent = recipeTitle //creates <h3>[Title of Recipe]</h3>
+                var recipeName = document.createElement('h3');
+                recipeName.textContent = recipeTitle //creates <h3>[Title of Recipe]</h3>
 
-            var recipePicture = document.createElement('img');
-            recipePicture.setAttribute('src', recipeImage); //creates <img src="[recipe url]">
+                var recipePicture = document.createElement('img');
+                recipePicture.setAttribute('src', recipeImage); //creates <img src="[recipe url]">
+                recipePicture.setAttribute('class', 'img-center');
 
-            
+                var saverecipeBtn = document.createElement('button');
+                saverecipeBtn.setAttribute('class', 'button is-danger save-target')
+                saverecipeBtn.textContent = 'Add to Recipe List';
 
-            recipeCarousel.insertAdjacentElement("afterbegin", recipeList);
-            recipeList.insertAdjacentHTML("afterbegin", '<img src="' + recipeImage + '" />');
 
+                recipeCarousel.insertAdjacentElement("afterbegin", recipeList);
+                recipeList.insertAdjacentHTML("afterbegin", '<img src=' + recipeImage + '/>');
+                recipeList.insertAdjacentElement("afterbegin", recipeName);
+                recipeList.insertAdjacentElement("beforeend", saverecipeBtn);
 
-            recipePicture.addEventListener('click',() => saveItem(data))
-
-            
+                var SaveBtnLast = document.querySelectorAll('.save-target');
+                SaveBtnLast.forEach(function(button) {
+                  button.addEventListener('click', saveItem);
+                });
           };
 
           console.log(recipeList);
@@ -93,7 +103,7 @@ function findRecipes(event) {
                items[0].classList.add('carousel-item-selected');
                buttons[0].classList.add('carousel-button-selected');
               });
-              
+
         });
 }
 

@@ -27,6 +27,7 @@ form button {
     display: inline-block;
     width: 38%;
     height: 300px;
+    padding-left: 12px;
     background-color: rgba(221, 234, 234, 0.473);
     border: 1px solid black;
     border-radius: 6px;
@@ -105,21 +106,24 @@ font-weight: 400;
 
 .carousel {
     position: relative;
-    width: 50%;
+    display: inline-block;
+    margin-bottom: 8px;
+    width: 40%;
 
 }
 
 /* Targets each display */
 .carousel-item { 
     display: none;
-    text-align: center;
-    height: 390px;
     background: rgba(103, 164, 204, 0.46);
-    padding: 1em;
+    padding: 1em;    
+    justify-content: center;
+    flex-wrap: wrap;
+    
 }
 
 .carousel-item-selected {
-    display: block;
+    display: flex;
 }
 /* Targets each display */
 
@@ -151,10 +155,8 @@ font-weight: 400;
     background: rgb(14, 35, 188);
 }
 
-.img-center {
+.carousel-item img {
     display: block;
-    width: 60%;
-    height: 6   0%;
     margin: 0 auto 11.9328px auto;
 }
 
@@ -163,4 +165,8 @@ font-weight: 400;
     margin-bottom: 8px;
     font-weight: bolder;
     color: #fff;
+}
+
+.carousel-item button {
+    margin-bottom: 20px;
 }
