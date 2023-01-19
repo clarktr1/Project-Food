@@ -18,7 +18,6 @@ body {
 }
 
 .all-container{
-    margin-right: 20%;
     margin-top: 6%;
 }
 
@@ -43,6 +42,11 @@ body {
     height: 100px;
     width: 50%;
     margin: 1% auto;
+}
+
+.ingredient-container ol {
+    margin-top: 8px;
+    text-align: center;
 }
 
 #list-of-ingredients li {
