@@ -15,3 +15,21 @@ The third page is a meal planner that allows the user to view saved recipes and 
 
 ![Screenshot](./assets/photos/screenshotrecipefinder.png)
 ![Screenshot](./assets/photos/screenshotmealplanner.png)
+
+
+
+## Authors
+
+- [@Kiefer King](https://www.github.com/Kking91)
+- [@Trey Clark](https://www.github.com/clarktr1)
+- [@Amy Flores](https://www.github.com/Alejandra5211)
+
+
+## 🔗 Links
+
+https://github.com/clarktr1/Project-Food
+
+https://clarktr1.github.io/Project-Food/
+
+
+
