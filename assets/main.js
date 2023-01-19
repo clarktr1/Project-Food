@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //  Adds the ingredient into the list as well as clears the bar for the next input and creates them into an array
 var ingredientsArray = [];
 var numberofsavedRecipes = 0;
-var getsavedRecipes = parseInt(localStorage.getItem('savedRecipes'));
+var getsavedRecipes = parseInt(localStorage.getItem('savedRecipes'))
 
 function placeRecipe() {
   if (getsavedRecipes){
@@ -54,12 +54,17 @@ function addIngredient(event) {
 
 
 function saveItem(item){
-  numberofsavedRecipes += 1
-  localStorage.setItem ('savedRecipes', numberofsavedRecipes)
-  localStorage.setItem(numberofsavedRecipes, JSON.stringify(item))
-  console.log(item);
-  return
-  
+  // numberofsavedRecipes += 1
+  // localStorage.setItem ('savedRecipes', numberofsavedRecipes)
+  // localStorage.setItem(numberofsavedRecipes, JSON.stringify(item))
+  console.log(item.dataset.recipeid);
+  var recipeId = item.dataset.recipeid
+  fetch('https://api.spoonacular.com/recipes/'+ recipeId + '/information?apiKey=' + apiKey)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+    
 };
 
 // Takes the list of ingredients and using an API finds 10 recipes that you can make with it
@@ -81,6 +86,7 @@ function findRecipes(event) {
             for (var i = 0; i < data.length; i++){
                 var recipeTitle = data[i].title;
                 var recipeImage = data[i].image;
+                var recipeId = data[i].id;
                 
                 var recipeList = document.createElement("div");
                 recipeList.setAttribute('class', 'carousel-item'); //creates <div class="carousel-item"></div>
@@ -94,9 +100,9 @@ function findRecipes(event) {
 
                 var saverecipeBtn = document.createElement('button');
                 saverecipeBtn.setAttribute('class', 'button is-danger save-target add-button')
-                saverecipeBtn.setAttribute('data-recipeid', data[i].id)
+                saverecipeBtn.setAttribute('data-recipeID', data[i].id)
                 saverecipeBtn.textContent = 'Add to Recipe List';
-                saverecipeBtn.addEventListener('click', () => saveItem(data));
+                saverecipeBtn.addEventListener('click',  (e) => saveItem(e.target));
 
 
                 recipeCarousel.insertAdjacentElement("afterbegin", recipeList);
@@ -104,6 +110,10 @@ function findRecipes(event) {
                 recipeList.insertAdjacentElement("afterbegin", recipeName);
                 recipeList.insertAdjacentElement("beforeend", saverecipeBtn);
 
+                // var SaveBtnLast = document.querySelectorAll('.save-target');
+                // SaveBtnLast.forEach(function(button) {
+                //   button.addEventListener('click', () => saveItem(data));
+                // });
               };
 
            document.querySelectorAll('.carousel').forEach(carousel => {
@@ -132,6 +142,7 @@ function findRecipes(event) {
                buttons[0].classList.add('carousel-button-selected');
               });
               ingredientsArray = [];
+              
               console.log(ingredientsArray);
         });
 }
