@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //  Adds the ingredient into the list as well as clears the bar for the next input and creates them into an array
 var ingredientsArray = [];
 var numberofsavedRecipes = 0;
-var getsavedRecipes = localStorage.getItem('savedRecipes')
+var getsavedRecipes = parseInt(localStorage.getItem('savedRecipes'));
 
 function placeRecipe() {
   if (getsavedRecipes){
@@ -56,7 +56,7 @@ function addIngredient(event) {
 function saveItem(item){
   numberofsavedRecipes += 1
   localStorage.setItem ('savedRecipes', numberofsavedRecipes)
-  localStorage.setItem(numberofsavedRecipes, item)
+  localStorage.setItem(numberofsavedRecipes, JSON.stringify(item))
   console.log(item);
   return
   
@@ -94,7 +94,9 @@ function findRecipes(event) {
 
                 var saverecipeBtn = document.createElement('button');
                 saverecipeBtn.setAttribute('class', 'button is-danger save-target add-button')
+                saverecipeBtn.setAttribute('data-recipeid', data[i].id)
                 saverecipeBtn.textContent = 'Add to Recipe List';
+                saverecipeBtn.addEventListener('click', () => saveItem(data));
 
 
                 recipeCarousel.insertAdjacentElement("afterbegin", recipeList);
@@ -102,10 +104,6 @@ function findRecipes(event) {
                 recipeList.insertAdjacentElement("afterbegin", recipeName);
                 recipeList.insertAdjacentElement("beforeend", saverecipeBtn);
 
-                var SaveBtnLast = document.querySelectorAll('.save-target');
-                SaveBtnLast.forEach(function(button) {
-                  button.addEventListener('click', () => saveItem(data[i]));
-                });
               };
 
            document.querySelectorAll('.carousel').forEach(carousel => {
