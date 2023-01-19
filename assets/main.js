@@ -1,4 +1,4 @@
-const apiKey = "02d88c0bd1614f2a831e95aa71af5f31";
+const apiKey = "1bec047b37794963895b76ca13770519";
 const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKey}&ingredients=`;
 
 
@@ -54,9 +54,9 @@ function addIngredient(event) {
 
 
 function saveItem(item){
-  // numberofsavedRecipes += 1
-  // localStorage.setItem ('savedRecipes', numberofsavedRecipes)
-  // localStorage.setItem(numberofsavedRecipes, JSON.stringify(item))
+  numberofsavedRecipes += 1
+  localStorage.setItem ('savedRecipes', numberofsavedRecipes)
+  localStorage.setItem(numberofsavedRecipes, JSON.stringify(item))
   console.log(item.dataset.recipeid);
   var recipeId = item.dataset.recipeid
   fetch('https://api.spoonacular.com/recipes/'+ recipeId + '/information?apiKey=' + apiKey)
@@ -64,8 +64,27 @@ function saveItem(item){
     .then(data => {
       console.log(data)
     })
-    
 };
+
+function viewRecipe(item){
+  var recipeId = item.dataset.recipeid
+  fetch('https://api.spoonacular.com/recipes/'+ recipeId + '/information?apiKey=' + apiKey)
+    .then(response => response.json())
+    .then(data => {
+      var allContainer = document.querySelector('.all-container');
+      var recipeInfo = document.createElement('p');
+      recipeInfo.setAttribute('class', 'ingredient-container')
+      recipeInfo.innerHTML = data.instructions;
+      var oldingredientContainer = document.querySelector('.ingredient-container')
+
+      if(oldingredientContainer){
+        oldingredientContainer.remove();
+      };
+
+      allContainer.appendChild(recipeInfo);
+      console.log(data)
+    })
+}
 
 // Takes the list of ingredients and using an API finds 10 recipes that you can make with it
 function findRecipes(event) {
@@ -104,11 +123,19 @@ function findRecipes(event) {
                 saverecipeBtn.textContent = 'Add to Recipe List';
                 saverecipeBtn.addEventListener('click',  (e) => saveItem(e.target));
 
+                var viewrecipeBtn = document.createElement('button');
+                viewrecipeBtn.setAttribute('class', 'button is-safe add-button');
+                viewrecipeBtn.textContent = 'See Recipe Now';
+                viewrecipeBtn.setAttribute('data-recipeID', data[i].id)
+                viewrecipeBtn.addEventListener('click', (e) => viewRecipe(e.target))
+
+
 
                 recipeCarousel.insertAdjacentElement("afterbegin", recipeList);
                 recipeList.insertAdjacentHTML("afterbegin", '<img src=' + recipeImage + '>');
                 recipeList.insertAdjacentElement("afterbegin", recipeName);
                 recipeList.insertAdjacentElement("beforeend", saverecipeBtn);
+                recipeList.insertAdjacentElement('beforeend', viewrecipeBtn);
 
                 // var SaveBtnLast = document.querySelectorAll('.save-target');
                 // SaveBtnLast.forEach(function(button) {
