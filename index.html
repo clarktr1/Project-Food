@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/styles.css">
     <title>Thyme for Food</title>
@@ -13,13 +16,15 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a  href="./index.html">
-            <img src="./assets/photos/Editable-Photoshop-Food-Logo-Design-PNG-Transparent-2048x2048.png" width="112" height="auto">
+            <img src="./assets/photos/thyme.png" width="112" height="auto" style="border-radius: 360px;
+            border: 1px solid black; margin: 8px;">
           </a>
       
           <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
+            
           </a>
         </div>
       
@@ -31,27 +36,25 @@
             <a class="navbar-item" href="meal.html">
               Meal Planner
             </a>
-            <h1 class="title">Project Food</h1>
+            <h1 class="title navbar-item">What Thyme is it?</h1>
           </div>
         </div>
       </nav>
 </header>
 <main>
-    <div id="main" class="container">
-    <div>
+  <div class="all-container">
+  <div id="main" class="container">
     <form>
-        <input class="box" placeholder="Enter an Ingredient" id="ingredient-input"></input>
+      <input class="input is-primary is-medium" type="text" placeholder="What's on the menu?" id="ingredient-input">
         <button type="submit" class="button is-info is-normal" id="add-to-list" onclick="addIngredient(event);">Add To List</button>
-
         <button class="button is-danger is-normal" id="find-recipe" onclick="findRecipes(event)">Find Recipes</button>
-        
     </form>
-    <div id="list-of-ingredients"></div>
   </div>
-    <div class="carousel" id="recipes">
-
-    </div>
-    </div>
+  <div id="ingredient-container">
+    <div id="list-of-ingredients"><h2></h2></div>
+  </div>
+  <div class="carousel" id="recipes"></div>
+</div>
     
 </main>
     <script src ="./assets/main.js"></script>
