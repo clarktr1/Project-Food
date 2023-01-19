@@ -1,37 +1,72 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+
 html {
     margin: 0;
     padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+
 .title {
-    margin: 20px 20vw;
+    margin-left: 260px;
+}
+
+.all-container{
+    margin-right: 20%;
+    margin-top: 6%;
 }
 
 #main {
-    display: relative;
-    border: 1px solid black;
-    width: 100%;
-    margin-left: 5%;
-}
-
-form {
     display: flex;
-    width: 20vh;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
 }
 
-form button {
-    margin: 12px 12px 0px 8px;
+#main button {
+    width: 20%;
+    margin: 16px 20px;
+}
+
+.input {
+    width: 90%;
 }
 
 #list-of-ingredients {
+    text-align: center;
+    height: 100px;
+    width: 50%;
+    margin: 1% auto;
+}
+
+#list-of-ingredients li {
     display: inline-block;
-    width: 38%;
-    height: 300px;
-    padding-left: 12px;
-    background-color: rgba(221, 234, 234, 0.473);
-    border: 1px solid black;
-    border-radius: 6px;
-    margin-right: 0;
+    list-style: none;
+    background-color: hsl(204, 86%, 53%);
+    color: #fff;
+    width: auto;
+    padding: 0 3%;
+    border-radius: 12px;
+    margin: 8px auto;
+}
+
+#list-of-ingredients li:hover{
+    background-color: hsl(348, 100%, 61%);
+    color: #111;
+    cursor: pointer;
+}
+
+
+.list-item span:hover {
+    font-weight: bolder;
+    font-size: 26px;
+    cursor: pointer;
 }
 
 .menu-list li {
@@ -41,15 +76,12 @@ font-size: 18px;
 font-weight: 400;
 }
 
-.menu-list a:hover {
+.menu-list a:hover, details summary:hover {
     background: hsl(171, 100%, 41%);
     color: #fff;
     font-weight: bold;
     }
 
-.menu-list li span {
-    margin-right: 8px;
-}
 
 
 .time-grid {
@@ -105,36 +137,42 @@ font-weight: 400;
 /* Carousel Styling */
 
 .carousel {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 8px;
-    width: 40%;
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    height: 50%;
+    width: 50%;
 }
 
 /* Targets each display */
 .carousel-item { 
     display: none;
+    margin: 0 auto;
     background: rgba(103, 164, 204, 0.46);
-    padding: 1em;    
+    width: 500px;   
+    height: 300px;
     justify-content: center;
     flex-wrap: wrap;
     
 }
 
 .carousel-item-selected {
-    display: flex;
+    display: block;
+}
+
+.carousel-item h3{
+    text-align: center;
 }
 /* Targets each display */
 
 
 .carousel-nav {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    background-color: rgba(103, 164, 204, 0.46);
+    height: 10%;
+    width: 500px;
     text-align: center;
-    z-index: 1;
 }
 
 .carousel-button {
@@ -158,15 +196,29 @@ font-weight: 400;
 .carousel-item img {
     display: block;
     margin: 0 auto 11.9328px auto;
-}
-
-.text-center {
-    text-align: center;
-    margin-bottom: 8px;
-    font-weight: bolder;
-    color: #fff;
+    width: 250px;
+    height: 190px;
 }
 
 .carousel-item button {
-    margin-bottom: 20px;
+    margin: 20px;
+}
+
+
+
+/* Dropdown Menu */
+summary {
+    margin-bottom: 10px;
+}
+
+
+
+.summary-container{
+    display: block;
+    position: relative;
+    z-index: 2;
+}
+
+li {
+    z-index: 2;
 }

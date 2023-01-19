@@ -56,70 +56,59 @@
                   Options
                 </p>
                 <ul class="menu-list">
-                    <div class="modal" id="shopping-plan-modal">
+                    <!-- Recipe Modal -->
+                    <div id="recipe-modal" class="modal">
                       <div class="modal-background"></div>
+                    
                       <div class="modal-content">
-                        <!-- content of the modal-->
+                        <div class="box">
+                          <p>Example of List</p>
+                          <ul>
+                            <li>
+                              <details>
+                                  <summary>Ice Cream</summary>
+                                  <div class="summary-container">
+                                  <h3>Ingredient List</h3>
+                                  <ul>
+                                    <li>Strawberry</li>
+                                    <li>Ice Cream</li>
+                                  </ul>
+                                </div>
+                              </details></li>
+                              <details><summary>Mango Peach Banana</summary></details>
+                              <!-- <details><summary>Oreo Dirt</summary></details>
+                              <details><summary>Waffles</summary></details>
+                              <details><summary>Strawberry Air</summary></details> -->
+                          </ul>
+                          <!-- Your content -->
+                        </div>
                       </div>
+                    
                       <button class="modal-close is-large" aria-label="close"></button>
                     </div>
-                    <li class="js-modal-trigger" data-target="shopping-plan-modal">
+                    <li class="js-modal-trigger" data-target="recipe-modal">
                       <a>
-                        <span>Calender</span>
-                        <img src="./assets/photos/calendar.png" class="icon">
-                      </a>
-                    </li>
-
-                    <!-- Recipe Modal -->
-                    <div class="modal">
-                      <div class="modal-background"></div>
-                      <div class="modal-card">
-                        <header class="modal-card-head">
-                          <p class="modal-card-title">Modal title</p>
-                          <button class="delete" aria-label="close"></button>
-                        </header>
-                        <section class="modal-card-body">
-                          <div class="list-of-ingredients"></div>>
-                        </section>
-                        <footer class="modal-card-foot">
-                          <button class="button is-success">Save changes</button>
-                          <button class="button">Cancel</button>
-                        </footer>
-                      </div>
-                    </div>
-                    <li class="js-modal-trigger" data-target="shopping-plan-modal">
-                      <a>
-                        <span>Recipes</span>
+                        <span>Recipe</span>
                         <img src="./assets/photos/contract.png" class="icon">
                       </a>
                     </li>
-                    <!-- End Recipe Modal -->
-                    <div class="modal" id="shopping-plan-modal">
-                      <div class="modal-background"></div>
-                      <div class="modal-content">
-                        
-                      </div>
-                      <button class="modal-close is-large" aria-label="close"></button>
-                    </div>
+                    <!-- End of Recipe Modal -->
+                    <!-- Product Modal -->
                     <li class="js-modal-trigger" data-target="shopping-plan-modal">
                       <a>
                         <span>Product</span>
                         <img src="./assets/photos/broccoli.png" class="icon">
                       </a>
                     </li>
-                    
-                    <div class="modal" id="shopping-plan-modal">
-                      <div class="modal-background"></div>
-                      <div class="modal-content">
-                      </div>
-                      <button class="modal-close is-large" aria-label="close"></button>
-                    </div>
+                    <!-- End of Product Modal -->
+                    <!-- Shopping List Modal -->
                     <li class="js-modal-trigger" data-target="shopping-plan-modal">
                       <a>
                         <span>Shopping Plan</span>
                         <img src="./assets/photos/bag.png" class="icon">
                       </a>
                     </li>
+                    <!-- End of Shopping List -->
               </aside>
         </div>
         <div class="planner-grid">
@@ -165,6 +154,7 @@
             
         </div>
     <script src ="./assets/main.js"></script> 
-    <script src="~bulma-calendar/dist/js/bulma-calendar.min.js"></script>
+    <script src="./assets/kroger.js"></script>
+
 </body>
 </html>
