@@ -1,4 +1,4 @@
-const apiKey = "02d88c0bd1614f2a831e95aa71af5f31";
+const apiKey = "1bec047b37794963895b76ca13770519";
 const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKey}&ingredients=`;
 
 
@@ -199,4 +199,4 @@ document.addEventListener('DOMContentLoaded', () => {
 //Runs on pageload
   placeRecipe();
  
-//thr end
+//the end
